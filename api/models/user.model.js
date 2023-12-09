@@ -16,8 +16,12 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    avatar: {
+      type: String,
+      default: "http://defaultavatarurl.png",
+    },
   },
-  { timestamps: true } // add this so that mongodb is going to add the of time of creation and time of update of the user
+  { timestamps: true } // add this so that mongodb is going to add the time of creation and the time of update of the user
 );
 
 const User = mongoose.model("User", userSchema);
