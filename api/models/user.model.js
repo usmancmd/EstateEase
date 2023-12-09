@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true } // add this so that mongodb is going to keep track of time of creation and time of update of the user
+  { timestamps: true } // add this so that mongodb is going to add the of time of creation and time of update of the user
 );
 
 const User = mongoose.model("User", userSchema);
