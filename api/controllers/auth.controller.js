@@ -27,7 +27,7 @@ export const signIn = async (req, res, next) => {
     res
       .cookie("access_token", token, { httpOnly: true })
       .status(200)
-      .json({ response_msg: "user sign in successfully" });
+      .json({ response_msg: "user sign in successfully", response });
   } catch (error) {
     next(error);
   }
@@ -64,6 +64,15 @@ export const googleAuth = async (req, res, next) => {
         .status(200)
         .json({ response_msg: "user created successfully", response });
     }
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const signOut = (req, res, next) => {
+  try {
+    res.clearCookie("access_token");
+    res.status(200).json("user logged out successfully!!");
   } catch (error) {
     next(error);
   }
